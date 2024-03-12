@@ -3,6 +3,8 @@ class VideoSharing {
     this.userVideoElement = document.querySelector('#localVideo');
     this.partnerVideoElement = document.querySelector('#remoteVideo');
     this.textAreaElement = document.querySelector("textarea");
+    this.confirmButton = document.getElementById('joinButton');
+    this.shareButton = document.getElementById('shareButton');
     this.video = document.getElementById('localVideo');
     this.slider = document.getElementById('sizeSlider');
     this.isSharing = false;
@@ -44,7 +46,41 @@ class VideoSharing {
     this.slider.oninput = () => {
       this.video.style.width = this.slider.value + 'px';
     }
+
+    this.confirmButton.onclick = () => {
+
+      if (document.getElementById('roomUsername').value === '') {
+        alert('Please enter your name');
+        return;
+      }
+
+      if (document.getElementById('roomAddress').value === '') {
+        alert('Please enter the server address');
+        return;
+      }
+
+      if (document.getElementById('roomPassword').value === '') {
+        alert('Please enter the server password');
+        return;
+      }
+
+      document.getElementById('userData').style.display = 'none';
+      document.getElementById('screenShare').style.display = 'block';
+
+      this.share();
+    }
+
+    this.shareButton.onclick = () => {
+      this.share();
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('screenShare').style.display = 'none';
+    });
+
   }
+
+  
 
   async getDisplayMedia() {
     if (this.isSharing) {
@@ -101,7 +137,11 @@ class VideoSharing {
     this.peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
   }
 
+  share() {
+    if (this.isSharing) return;
+    this.getDisplayMedia();
+  }
 }
 
 const videoSharing = new VideoSharing();
-videoSharing.getDisplayMedia();
+

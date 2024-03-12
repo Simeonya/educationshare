@@ -5,6 +5,9 @@
     /* Background color for the entire website */
     --main-bg-color: #252525;
 
+    /* Background color for the entire website */
+    --second-bg-color: #3b3a3a;
+
     /* Text color for the entire website */
     --main-text-color: #fff;
 
@@ -36,7 +39,7 @@
     --button-text-color: #fff;
 
     /* Background color of the buttons when hovered over */
-    --button-hover-bg-color: #4090d1;
+    --button-hover-bg-color: #3091e0;
 
     /* Text color of the buttons when hovered over */
     --button-hover-text-color: #fff;
@@ -104,6 +107,69 @@ button {
 }
 
 button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
+
+.userData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userData form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 80px;
+    border-radius: 5px;
+    border: none;
+    color: var(--button-text-color);
+    background-color: var(--second-bg-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.userData input {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: var(--button-text-color);
+    background-color: var(--second-bg-color);
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    outline: 1px solid var(--button-text-color);
+    outline-offset: 3px;
+}
+
+.userData button {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.userData button:hover {
     background-color: var(--button-hover-bg-color);
     color: var(--button-hover-text-color);
 }

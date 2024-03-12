@@ -12,29 +12,28 @@
 <body>
     <h1>Screen-Share</h1>
 
-    <div>
-        <div>
-            <p>Screen preview</p>
-            <video id="localVideo" width="500" autoplay controls>
-                Your browser does not support the video tag.
-            </video>
-            <br>
-            <p> Video Width </p>
-            <input type="range" min="1" max="1000" value="500" id="sizeSlider">
-
-        </div>
-
-        <div id="call_container" style="display: flex;">
-
-        </div>
+    <div class="screenShare" id="screenShare">
+        <p>Screen preview</p>
+        <video id="localVideo" width="500" autoplay controls>
+            Your browser does not support this feature
+        </video>
+        <br>
+        <p> Video Width </p>
+        <input type="range" min="1" max="1000" value="500" id="sizeSlider"><br>
+        <button type="button" id="shareButton">Start Sharing</button>
     </div>
 
-    <div">
-        <button onclick=createOffer()>Connection request</button>
-        <button onclick=createAnswer()>Connection answer</button>
-        </div>
+    <div class="userData" id="userData">
+        <form>
+            <h1>Join a Room</h1>
+            <input type="text" id="roomUsername" placeholder="Name">
+            <input type="text" id="roomAddress" placeholder="Server Address">
+            <input type="password" id="roomPassword" placeholder="Server Password">
+            <button type="button" id="joinButton">Confirm</button>
+        </form>
+    </div>
 
-        <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
