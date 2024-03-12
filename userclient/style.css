@@ -1,0 +1,109 @@
+:root {
+    /* Main typography for the entire website */
+    --main-font: Arial, sans-serif;
+
+    /* Background color for the entire website */
+    --main-bg-color: #252525;
+
+    /* Text color for the entire website */
+    --main-text-color: #fff;
+
+    /* Text alignment for the entire website */
+    --main-text-align: center;
+
+    /* Width of the video elements */
+    --main-video-width: 450px;
+
+    /* Height of the video elements */
+    --main-video-height: 500px;
+
+    /* Margin below the elements */
+    --main-margin-bottom: 5px;
+
+    /* Margin above the elements */
+    --main-margin-top: 20px;
+
+    /* Background color of the video elements */
+    --video-bg-color: #000;
+
+    /* Text color of the video elements */
+    --video-text-color: #fff;
+
+    /* Background color of the buttons */
+    --button-bg-color: #5fa5df;
+
+    /* Text color of the buttons */
+    --button-text-color: #fff;
+
+    /* Background color of the buttons when hovered over */
+    --button-hover-bg-color: #4090d1;
+
+    /* Text color of the buttons when hovered over */
+    --button-hover-text-color: #fff;
+
+    /* Text color of the textarea */
+    --text-text-color: #000;
+
+    /* Background color of the textarea */
+    --text-bg-color: #fff;
+
+    
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--main-bg-color);
+    text-align: var(--main-text-align);
+    color: var(--main-text-color);
+}
+
+#localVideo,
+#remoteVideo {
+    width: var(--main-video-width);
+    height: var(--main-video-height);
+    background: var(--video-bg-color);
+    color: var(--video-text-color);
+}
+
+#call_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--main-margin-bottom);
+}
+
+textarea {
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: var(--text-text-color);
+    background-color: var(--text-bg-color);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
