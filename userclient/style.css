@@ -1,56 +1,21 @@
 :root {
-    /* Main typography for the entire website */
-    --main-font: Arial, sans-serif;
-
-    /* Background color for the entire website */
-    --main-bg-color: #252525;
-
-    /* Background color for the entire website */
-    --second-bg-color: #3b3a3a;
-
-    /* Text color for the entire website */
-    --main-text-color: #fff;
-
-    /* Text alignment for the entire website */
-    --main-text-align: center;
-
-    /* Width of the video elements */
-    --main-video-width: 450px;
-
-    /* Height of the video elements */
-    --main-video-height: 500px;
-
-    /* Margin below the elements */
-    --main-margin-bottom: 5px;
-
-    /* Margin above the elements */
+    --main-font: 'Roboto', sans-serif;
+    --main-bg-color: #f5f5f5;
+    --second-bg-color: #ffffff;
+    --main-text-color: #333333;
+    --main-text-align: left;
+    --main-video-width: 100%;
+    --main-video-height: auto;
+    --main-margin-bottom: 20px;
     --main-margin-top: 20px;
-
-    /* Background color of the video elements */
     --video-bg-color: #000;
-
-    /* Text color of the video elements */
     --video-text-color: #fff;
-
-    /* Background color of the buttons */
-    --button-bg-color: #5fa5df;
-
-    /* Text color of the buttons */
+    --button-bg-color: #007BFF;
     --button-text-color: #fff;
-
-    /* Background color of the buttons when hovered over */
-    --button-hover-bg-color: #3091e0;
-
-    /* Text color of the buttons when hovered over */
+    --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #fff;
-
-    /* Text color of the textarea */
-    --text-text-color: #000;
-
-    /* Background color of the textarea */
+    --text-text-color: #333333;
     --text-bg-color: #fff;
-
-
 }
 
 body {
@@ -58,6 +23,7 @@ body {
     background-color: var(--main-bg-color);
     text-align: var(--main-text-align);
     color: var(--main-text-color);
+    line-height: 1.6;
 }
 
 #localVideo,
@@ -73,37 +39,164 @@ body {
     justify-content: center;
     align-items: center;
     gap: var(--main-margin-bottom);
+    flex-wrap: wrap;
 }
 
 textarea {
     margin-bottom: var(--main-margin-bottom);
     padding: 10px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
     color: var(--text-text-color);
     background-color: var(--text-bg-color);
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
     margin-top: var(--main-margin-top);
     margin-bottom: var(--main-margin-bottom);
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     border: none;
     color: var(--button-text-color);
     background-color: var(--button-bg-color);
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
+
+h1 {
+    text-align: center;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    font-size: 50px;
+    color: var(--text-text-color)
+}
+
+.screenShare p {
+    text-align: center;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    font-size: 25px;
+    color: var(--text-text-color)
+}
+
+.userData h1 {
+    text-align: center;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    font-size: 25px;
+    color: var(--text-text-color)
+}
+
+.userData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.userData form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: var(--text-text-color);
+    background-color: var(--second-bg-color);
+    text-align: left;
+}
+
+.userData input {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: var(--text-text-color);
+    background-color: var(--second-bg-color);
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.userData button {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--text-text-color);
+    background-color: var(--button-bg-color);
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.userData button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--text-hover-text-color);
+}
+
+#localVideo,
+#remoteVideo {
+    width: var(--main-video-width);
+    height: var(--main-video-height);
+    background: var(--video-bg-color);
+    color: var(--video-text-color);
+}
+
+#call_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--main-margin-bottom);
+    flex-wrap: wrap;
+}
+
+textarea {
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: var(--text-text-color);
+    background-color: var(--text-bg-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
 }
 
 button:hover {
@@ -116,24 +209,24 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .userData form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     margin-top: var(--main-margin-top);
     margin-bottom: var(--main-margin-bottom);
-    padding: 80px;
+    padding: 20px;
     border-radius: 5px;
-    border: none;
-    color: var(--button-text-color);
+    border: 1px solid #ccc;
+    color: var(--text-text-color);
     background-color: var(--second-bg-color);
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    transition-duration: 0.4s;
+    text-align: left;
 }
 
 .userData input {
@@ -141,35 +234,128 @@ button:hover {
     margin-bottom: var(--main-margin-bottom);
     padding: 10px;
     border-radius: 5px;
-    border: none;
-    color: var(--button-text-color);
+    border: 1px solid #ccc;
+    color: var(--text-text-color);
     background-color: var(--second-bg-color);
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    outline: 1px solid var(--button-text-color);
-    outline-offset: 3px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .userData button {
     margin-top: var(--main-margin-top);
     margin-bottom: var(--main-margin-bottom);
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 5px;
     border: none;
     color: var(--button-text-color);
     background-color: var(--button-bg-color);
-    text-align: center;
     text-decoration: none;
-    display: block;
     font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
+    text-align: center;
 }
 
 .userData button:hover {
     background-color: var(--button-hover-bg-color);
     color: var(--button-hover-text-color);
+}
+
+.darkmode-control {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 34px;
+    padding: 3px;
+    border-radius: 34px;
+    background-color: var(--main-text-color);
+    transition: background-color 0.2s;
+}
+
+.darkmode-control-input {
+    display: none;
+}
+
+.darkmode-control-input:checked+.darkmode-control-label {
+    left: 26px;
+}
+
+.darkmode-control-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 4px;
+}
+
+.darkmode-control-label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+[data-theme="dark"] {
+    --main-bg-color: #212121;
+    --second-bg-color: #333;
+    --main-text-color: #eee;
+    --video-bg-color: #000;
+    --video-text-color: #fff;
+    --button-bg-color: #007BFF;
+    --button-text-color: #fff;
+    --button-hover-bg-color: #0056b3;
+    --button-hover-text-color: #fff;
+    --text-text-color: #eee;
+    --text-bg-color: #333;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] #localVideo,
+[data-theme="dark"] #remoteVideo,
+[data-theme="dark"] #call_container,
+[data-theme="dark"] textarea,
+[data-theme="dark"] button,
+[data-theme="dark"] h1,
+[data-theme="dark"] .screenShare p,
+[data-theme="dark"] .userData h1,
+[data-theme="dark"] .userData,
+[data-theme="dark"] .userData form,
+[data-theme="dark"] .userData input,
+[data-theme="dark"] .userData button {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+[data-theme="dark"] button:hover,
+[data-theme="dark"] .userData button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
+
+[data-theme="dark"] .darkmode-control {
+    background-color: var(--main-text-color);
+}
+
+[data-theme="dark"] .darkmode-control-label {
+    background-color: #ccc;
+}
+
+[data-theme="dark"] .darkmode-control-label:before {
+    background-color: white;
 }

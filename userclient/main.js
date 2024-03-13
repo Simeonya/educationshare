@@ -80,7 +80,7 @@ class VideoSharing {
 
   }
 
-  
+
 
   async getDisplayMedia() {
     if (this.isSharing) {
@@ -143,5 +143,36 @@ class VideoSharing {
   }
 }
 
-const videoSharing = new VideoSharing();
+class DarkModeChanger {
+  constructor() {
+    this.darkSwitch = document.getElementById("darkSwitch");
+    if (this.darkSwitch) {
+      this.initTheme();
+      this.darkSwitch.addEventListener("change", () => this.resetTheme());
+    }
+  }
 
+  initTheme() {
+    var darkThemeSelected =
+      localStorage.getItem("darkSwitch") !== null &&
+      localStorage.getItem("darkSwitch") === "dark";
+    this.darkSwitch.checked = darkThemeSelected;
+    darkThemeSelected
+      ? document.body.setAttribute("data-theme", "dark")
+      : document.body.removeAttribute("data-theme");
+  }
+
+  resetTheme() {
+    if (this.darkSwitch.checked) {
+      document.body.setAttribute("data-theme", "dark");
+      localStorage.setItem("darkSwitch", "dark");
+    } else {
+      document.body.removeAttribute("data-theme");
+      localStorage.removeItem("darkSwitch");
+    }
+  }
+}
+
+
+new VideoSharing();
+new DarkModeChanger();
