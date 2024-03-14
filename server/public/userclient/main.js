@@ -1,5 +1,7 @@
 class VideoSharing {
   constructor() {
+    this.checkBrowserCompatibility();
+
     this.userVideoElement = document.querySelector('#localVideo');
     this.partnerVideoElement = document.querySelector('#remoteVideo');
     this.textAreaElement = document.querySelector("textarea");
@@ -80,6 +82,13 @@ class VideoSharing {
 
   }
 
+  checkBrowserCompatibility() {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+      alert('Please note that due to Apple restrictions, some features may not work as expected in Safari.');
+    }
+  }
+
   async getDisplayMedia() {
     if (this.isSharing) {
       return;
@@ -87,10 +96,20 @@ class VideoSharing {
     this.isSharing = true;
     try {
       const useAudio = false; // not implemented yet
-      const stream = await navigator.mediaDevices.getDisplayMedia({
-        ...this.displayMediaOptions,
-        audio: useAudio
-      });
+      let stream;
+      if (navigator.mediaDevices.getDisplayMedia) {
+        stream = await navigator.mediaDevices.getDisplayMedia({
+          ...this.displayMediaOptions,
+          audio: useAudio
+        });
+      } else if (navigator.mediaDevices.getUserMedia) { // Safari
+        stream = await navigator.mediaDevices.getUserMedia({
+          ...this.displayMediaOptions,
+          audio: useAudio
+        });
+      } else {
+        throw new Error('Neither getDisplayMedia nor getUserMedia are supported');
+      }
       this.userVideoElement.srcObject = stream;
       this.peerConnection.addStream(this.userVideoElement.srcObject);
     } catch (error) {
