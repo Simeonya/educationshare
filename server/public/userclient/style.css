@@ -19,6 +19,7 @@
 }
 
 body {
+    overflow: hidden;
     font-family: var(--main-font);
     background-color: var(--main-bg-color);
     text-align: var(--main-text-align);
