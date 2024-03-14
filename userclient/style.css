@@ -32,6 +32,10 @@ body {
     height: var(--main-video-height);
     background: var(--video-bg-color);
     color: var(--video-text-color);
+    margin-bottom: var(--main-margin-bottom);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 #call_container {
@@ -154,14 +158,6 @@ h1 {
 .userData button:hover {
     background-color: var(--button-hover-bg-color);
     color: var(--text-hover-text-color);
-}
-
-#localVideo,
-#remoteVideo {
-    width: var(--main-video-width);
-    height: var(--main-video-height);
-    background: var(--video-bg-color);
-    color: var(--video-text-color);
 }
 
 #call_container {
@@ -340,6 +336,11 @@ button:hover {
 [data-theme="dark"] .userData button {
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
+}
+
+[data-theme="dark"] button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
 }
 
 [data-theme="dark"] button:hover,

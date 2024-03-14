@@ -80,8 +80,6 @@ class VideoSharing {
 
   }
 
-
-
   async getDisplayMedia() {
     if (this.isSharing) {
       return;
@@ -97,6 +95,9 @@ class VideoSharing {
       this.peerConnection.addStream(this.userVideoElement.srcObject);
     } catch (error) {
       console.log('errors with the media device');
+      console.log('===========================================')
+      console.error(error);
+      console.log('===========================================')
       this.isSharing = false;
     }
   }
