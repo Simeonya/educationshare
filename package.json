@@ -1,0 +1,22 @@
+{
+  "name": "educationshare",
+  "version": "1.0.0",
+  "description": "EducationShare is an open-source platform available on GitHub for free download and self-hosting. This screen sharing platform is specifically designed for educational purposes, offering a seamless and intuitive way for educators and learners to share their screens to foster interactive and engaging learning experiences.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simeonya/educationshare.git"
+  },
+  "author": "Simeonya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Simeonya/educationshare/issues"
+  },
+  "homepage": "https://github.com/Simeonya/educationshare#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
