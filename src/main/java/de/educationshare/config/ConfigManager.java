@@ -8,12 +8,13 @@ import de.educationshare.Main;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.chrono.MinguoChronology;
 
 public class ConfigManager {
     /**
      * Database Configuration File
      */
-    private final File dbConfigFile;
+    private final File databaseFile;
 
     /**
      * Database Configuration
@@ -26,11 +27,22 @@ public class ConfigManager {
      * @param dataDirectory Where the configuration files are stored
      */
     public ConfigManager(Path dataDirectory) {
+        dataDirectory = Path.of(dataDirectory + "/config");
         File dataDir = dataDirectory.toFile();
         if (!dataDir.exists()) {
             dataDir.mkdirs();
         }
-        dbConfigFile = new File(dataDir, "database.json");
+
+        Main.getInstance().getLogger().info("Data Directory: " + dataDir.getAbsolutePath());
+        databaseFile = new File(dataDir, "database.json");
+
+        if (!databaseFile.exists()) {
+            try {
+                databaseFile.createNewFile();
+            } catch (IOException e) {
+                Main.getInstance().getLogger().error("An error occurred while creating the database configuration file", e);
+            }
+        }
     }
 
     /**
@@ -39,12 +51,12 @@ public class ConfigManager {
      * @return Database Configuration
      * @throws IOException If an error occurred while reading the file
      */
-    public DatabaseConfig loadDBConfig() throws IOException {
+    public DatabaseConfig loadDatabaseConfig() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        if (!dbConfigFile.exists()) {
+        if (!databaseFile.exists() || databaseFile.length() == 0) {
             return new DatabaseConfig();
         }
-        return mapper.readValue(dbConfigFile, DatabaseConfig.class);
+        return mapper.readValue(databaseFile, DatabaseConfig.class);
     }
 
     /**
@@ -53,11 +65,13 @@ public class ConfigManager {
      * @param config Database Configuration
      * @throws IOException If an error occurred while writing the file
      */
-    public void saveDBConfig(DatabaseConfig config) throws IOException {
+    public void saveDatabaseConfig(DatabaseConfig config) throws IOException {
+        Main.getInstance().getLogger().info("Saving Database Configuration");
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         ObjectNode rootNode = mapper.valueToTree(config);
-        mapper.writeValue(dbConfigFile, rootNode);
+        mapper.writeValue(databaseFile, rootNode);
+        Main.getInstance().getLogger().info("Database Configuration saved");
     }
 
     /**
@@ -66,8 +80,11 @@ public class ConfigManager {
      */
     public void init() {
         try {
-            setDatabaseConfig(loadDBConfig());
-            saveDBConfig(getDatabaseConfig());
+            Main.getInstance().getLogger().info("Loading Database Configuration");
+            setDatabaseConfig(loadDatabaseConfig());
+            Main.getInstance().getLogger().info("Database Configuration loaded");
+            saveDatabaseConfig(getDatabaseConfig());
+            Main.getInstance().getLogger().info("Database Configuration saved");
         } catch (Exception e) {
             Main.getInstance().getLogger().error("An error accorded while loading Database Configuration", e);
         }
@@ -92,10 +109,6 @@ public class ConfigManager {
      * @param databaseConfig Database Configuration
      */
     private void setDatabaseConfig(DatabaseConfig databaseConfig) {
-        if (databaseConfig != null) {
-            Main.getInstance().getLogger().error("Trying to set Database Configuration but its not null!");
-            return;
-        }
-        this.databaseConfig = null;
+        this.databaseConfig = databaseConfig;
     }
 }

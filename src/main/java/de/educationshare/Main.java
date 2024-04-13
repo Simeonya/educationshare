@@ -1,6 +1,7 @@
 package de.educationshare;
 
 import de.educationshare.config.ConfigManager;
+import de.educationshare.database.HibernateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +14,7 @@ public class Main {
     private final Logger logger = LoggerFactory.getLogger(Main.class);
     private static Main instance;
     private final ConfigManager configManager;
+    private final HibernateUtil hibernateUtil;
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
@@ -21,8 +23,12 @@ public class Main {
     public Main() {
         instance = this;
         configManager = new ConfigManager(Path.of(System.getProperty("user.dir")));
-
+        configManager.init();
         getLogger().info("ConfigManager loaded");
+
+        hibernateUtil = new HibernateUtil(configManager.getDatabaseConfig().getHost(), configManager.getDatabaseConfig().getPort(), configManager.getDatabaseConfig().getName(), configManager.getDatabaseConfig().getUser(), configManager.getDatabaseConfig().getPassword());
+        getHibernateUtil().buildSessionFactory();
+        getLogger().info("HibernateUtil loaded");
     }
 
     /**
@@ -50,5 +56,14 @@ public class Main {
      */
     public Logger getLogger() {
         return logger;
+    }
+
+    /**
+     * Get the HibernateUtil where you can access the Database
+     *
+     * @return Hibernate instance
+     */
+    public HibernateUtil getHibernateUtil() {
+        return hibernateUtil;
     }
 }

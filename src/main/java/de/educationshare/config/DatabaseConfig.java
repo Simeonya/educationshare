@@ -7,31 +7,31 @@ public class DatabaseConfig {
      * Database Host
      */
     @JsonProperty("Database.Host")
-    private String host;
+    private String host = "localhost";
 
     /**
      * Database Port
      */
     @JsonProperty("Database.Port")
-    private int port;
+    private int port = 3306;
 
     /**
      * Database User
      */
     @JsonProperty("Database.User")
-    private String user;
+    private String user = "root";
 
     /**
      * Database Password
      */
     @JsonProperty("Database.Password")
-    private String password;
+    private String password = "";
 
     /**
      * Database Name
      */
     @JsonProperty("Database.Name")
-    private String name;
+    private String name = "educationshare";
 
     /**
      * Get the Database Host
