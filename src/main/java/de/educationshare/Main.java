@@ -1,47 +1,54 @@
 package de.educationshare;
 
+import de.educationshare.config.ConfigManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
+
+import java.nio.file.Path;
 
 @SpringBootApplication
-@RestController
 public class Main {
+    private final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static Main instance;
+    private final ConfigManager configManager;
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
 
+    public Main() {
+        instance = this;
+        configManager = new ConfigManager(Path.of(System.getProperty("user.dir")));
 
-
-    @GetMapping("/")
-    public String frontPage() {
-        return "Main Page";
+        getLogger().info("ConfigManager loaded");
     }
 
-    @GetMapping("/admin")
-    public String adminPage() {
-        return "Admin Page";
+    /**
+     * Get the ConfigManager
+     *
+     * @return ConfigManager with all configurations
+     */
+    public ConfigManager getConfigManager() {
+        return configManager;
     }
 
-    @GetMapping("/create")
-    public String createRoomPage() {
-        return "Create Room Page";
+    /**
+     * Get the instance of the Main class
+     *
+     * @return Main instance
+     */
+    public static Main getInstance() {
+        return instance;
     }
 
-    @GetMapping("/room/{id}/")
-    public String RoomPage(@PathVariable String id) {
-        return "Room Page " + id;
+    /**
+     * Get the logger
+     *
+     * @return SLF4J Logger instance
+     */
+    public Logger getLogger() {
+        return logger;
     }
-    @GetMapping("/room")
-    public RedirectView RoomPageNoId() {
-       return new RedirectView("/");
-    }
-
-
-
-
-
-
 }
