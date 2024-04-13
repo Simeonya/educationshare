@@ -2,16 +2,18 @@ package de.educationshare.database.objects;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
+
 @Entity
 @Table(name = "accounts")
 public class AccountObject {
-    public AccountObject() {
-    }
+    public AccountObject() {}
 
-    public AccountObject(String username, String password, boolean isTeacher) {
+    public AccountObject(String username, String password, boolean isTeacher, Date createdAt) {
         this.username = username;
         this.password = password;
         this.isTeacher = isTeacher;
+        this.createdAt = createdAt;
     }
 
     @Id
@@ -27,6 +29,17 @@ public class AccountObject {
 
     @Column(name = "isTeacher")
     private boolean isTeacher;
+
+    @Column(name = "createdAt")
+    private Date createdAt;
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Long getId() {
         return id;

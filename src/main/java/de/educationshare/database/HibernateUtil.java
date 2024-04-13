@@ -1,6 +1,7 @@
 package de.educationshare.database;
 
 import de.educationshare.database.objects.AccountObject;
+import de.educationshare.database.objects.TokensObject;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -55,6 +56,7 @@ public class HibernateUtil {
 
             // Add your entity classes
             metadataSources.addAnnotatedClass(AccountObject.class);
+            metadataSources.addAnnotatedClass(TokensObject.class);
 
             // Build Metadata
             Metadata metadata = metadataSources.getMetadataBuilder().build();

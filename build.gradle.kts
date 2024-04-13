@@ -19,6 +19,7 @@ dependencies {
     implementation("com.mysql:mysql-connector-j:8.3.0");
     implementation("org.json:json:20240303");
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("at.favre.lib:bcrypt:0.10.2")
 
 }
 

@@ -16,20 +16,39 @@
 </div>
 
 
-<div class="optionsContainer">
-    <div class="options">
+<div class="actionContainer" id="actionContainer">
+    <div class="options" id="options">
         <div class="option">
-            <a href="/login" class="option__link">
-                <h2 class="option__title">Login</h2>
-            </a>
-            <p class="option__description">Login to your account.</p>
+            <h2 id="startLogin" class="startLogin">Login</h2>
+            <p>Login to your account.</p>
         </div>
         <div class="option">
-            <a href="/register" class="option__link">
-                <h2 class="option__title">Register</h2>
-            </a>
-            <p class="option__description">Register a new account.</p>
+            <h2 id="startRegister" class="startRegister">Register</h2>
+            <p>Register a new account.</p>
         </div>
+    </div>
+
+    <div class="loginContainer" id="loginContainer">
+        <form id="loginForm">
+            <h2>Login</h2>
+            <p id="loginDescription">Enter your username and password to login.</p>
+            <input type="text" name="username" id="loginUsername" placeholder="Username" required>
+            <input type="password" name="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" id="finishLogin">Login</button>
+            <button id="backLogin">Back</button>
+        </form>
+    </div>
+
+    <div class="registerContainer" id="registerContainer">
+        <form id="registerForm">
+            <h2>Register</h2>
+            <p id="registerDescription">Enter your username and password to register.</p>
+            <input type="text" name="username" id="registerUsername" placeholder="Username" required>
+            <input type="password" name="password" id="registerPassword" placeholder="Password" required>
+            <input type="password" name="password" id="registerPassword2" placeholder="Repeat Password" required>
+            <button type="submit" id="finishRegister">Register</button>
+            <button id="backRegister">Back</button>
+        </form>
     </div>
 </div>
 
