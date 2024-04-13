@@ -16,25 +16,7 @@ Download EducationShare today, host your own instance, and revolutionize your ed
 
 # Requirements 📋
 
-- Node.js
-- NPM
+- Java 21+
+- MySQL Database
 
-# Installation 💻
-
-To install the EducationShare Server, you need to clone the repository and install the required dependencies using the following commands:
-
-```bash
-git clone https://github.com/Simeonya/educationshare/
-cd educationshare
-npm install
-cd server
-node server.js
-```
-
-# Which file to run? 🚀
-To run the EducationShare Server you need to execute the following file with the following command:
-
-```bash
-cd server
-node server.js
-```
+## README FILE WIP
