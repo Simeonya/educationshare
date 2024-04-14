@@ -13,25 +13,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const finishLogin = document.getElementById('finishLogin');
     const finishRegister = document.getElementById('finishRegister');
 
+    const startLoginFooter = document.getElementById('startLoginFooter');
+    const startRegisterFooter = document.getElementById('startRegisterFooter');
+    const reloadPage = document.getElementById('reloadPage');
+
     loginDiv.style.display = 'none';
     registerDiv.style.display = 'none';
 
-    startLogin.addEventListener('click', function () {
+    reloadPage.addEventListener('click', function () {
+        window.location.reload();
+    });
+
+    startLoginFooter.addEventListener('click', function () {
+        document.title = 'EducationShare | Login';
         optionsDiv.style.display = 'none';
+        registerDiv.style.display = 'none';
         loginDiv.style.display = 'flex';
     });
 
-    startRegister.addEventListener('click', function () {
+    startLogin.addEventListener('click', function () {
+        document.title = 'EducationShare | Login';
         optionsDiv.style.display = 'none';
+        registerDiv.style.display = 'none';
+        loginDiv.style.display = 'flex';
+    });
+
+    startRegisterFooter.addEventListener('click', function () {
+        document.title = 'EducationShare | Register';
+        optionsDiv.style.display = 'none';
+        loginDiv.style.display = 'none';
+        registerDiv.style.display = 'flex';
+    });
+
+    startRegister.addEventListener('click', function () {
+        document.title = 'EducationShare | Register';
+        optionsDiv.style.display = 'none';
+        loginDiv.style.display = 'none';
         registerDiv.style.display = 'flex';
     });
 
     backLogin.addEventListener('click', function () {
+        document.title = 'EducationShare | Welcome';
         optionsDiv.style.display = 'flex';
         loginDiv.style.display = 'none';
     });
 
     backRegister.addEventListener('click', function () {
+        document.title = 'EducationShare | Welcome';
         optionsDiv.style.display = 'flex';
         registerDiv.style.display = 'none';
     });
