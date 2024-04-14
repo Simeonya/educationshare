@@ -28,7 +28,8 @@ body {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 25px 0;
+    padding-top: 5px;
+    padding-bottom: 75px;
 }
 
 .options {
@@ -51,7 +52,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     transition: 0.5s;
-    z-index: 2;
 }
 
 .option:hover {
@@ -79,6 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     top: 25px;
+    padding: 0 50px;
 }
 
 .header {
@@ -86,14 +87,14 @@ body {
     width: 100%;
     background: #3586ff;
     min-height: 100px;
-    padding: 35px 100px;
+    padding: 15px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+
 }
 
 .header__description, .header__title {
@@ -122,7 +123,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 3;
+
 }
 
 .menu {
@@ -254,28 +255,24 @@ form h2 {
 }
 
 .wave#wave1 {
-    z-index: 1000;
     opacity: 1;
     bottom: 0;
     animation: animateWaves 4s linear infinite;
 }
 
 .wave#wave2 {
-    z-index: 999;
     opacity: 0.5;
     bottom: 10px;
     animation: animate 4s linear infinite !important;
 }
 
 .wave#wave3 {
-    z-index: 1000;
     opacity: 0.2;
     bottom: 15px;
     animation: animateWaves 3s linear infinite;
 }
 
 .wave#wave4 {
-    z-index: 999;
     opacity: 0.7;
     bottom: 20px;
     animation: animate 3s linear infinite;
@@ -299,38 +296,25 @@ form h2 {
     }
 }
 
-@media only screen and (max-width: 480px) {
-    .header__title { font-size: 1.3rem; }
-    .option h2 { font-size: 1.1rem; }
-    .header__description { font-size: 1.1rem; }
-}
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 50px;
+    }
 
-@media only screen and (min-width: 481px) and (max-width: 600px) {
-    .header__title { font-size: 1.5rem; }
-    .option h2 { font-size: 1.2rem; }
-    .header__description { font-size: 1.2rem; }
-}
+    .footer {
+        padding: 20px 25px;
+    }
 
-@media only screen and (min-width: 601px) and (max-width: 768px) {
-    .header__title { font-size: 2rem; }
-    .option h2 { font-size: 1.5rem; }
-    .header__description { font-size: 1.5rem; }
-}
+    .container {
+        padding: 0 25px;
+    }
 
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-    .header__title { font-size: 2.5rem; }
-    .option h2 { font-size: 2rem; }
-    .header__description { font-size: 2rem; }
-}
+    .option {
+        width: 250px;
+        height: 250px;
+    }
 
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
-    .header__title { font-size: 3rem; }
-    .option h2 { font-size: 2.5rem; }
-    .header__description { font-size: 2.5rem; }
-}
-
-@media only screen and (min-width: 1201px) and (max-width: 1600px) {
-    .header__title { font-size: 3.5rem; }
-    .option h2 { font-size: 3rem; }
-    .header__description { font-size: 3rem; }
+    form {
+        max-width: 300px;
+    }
 }
