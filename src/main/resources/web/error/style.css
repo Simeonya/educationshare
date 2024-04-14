@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #333;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.actionContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 75px;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.option {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.option h2 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.option p {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.indexPage:hover {
+    cursor: pointer;
+}
+
+
+.container {
+    position: absolute;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    top: 25px;
+    padding: 0 50px;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 15px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.header__description, .header__title {
+    color: #fff;
+    text-align: center;
+}
+
+.header__description {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.header__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.menu__item {
+    list-style: none;
+}
+
+.menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+}
+
+.menu__link:hover {
+    opacity: 1;
+}
+
+.startLogin {
+    cursor: pointer;
+}
+
+.loginContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 15%;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #f9f9f9;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+form p {
+    color: #f9f9f9;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+form h2 {
+    color: #f9f9f9;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png");
+    background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+    opacity: 1;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: -1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 50px;
+    }
+
+    .footer {
+        padding: 20px 25px;
+    }
+
+    .container {
+        padding: 0 25px;
+    }
+
+    .option {
+        width: 250px;
+        height: 250px;
+    }
+
+    form {
+        max-width: 300px;
+    }
+}
