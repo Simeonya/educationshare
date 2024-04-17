@@ -1,4 +1,3 @@
-//TODO: Add token when login is successful
 document.addEventListener('DOMContentLoaded', function () {
     const startLogin = document.getElementById('startLogin');
     const startRegister = document.getElementById('startRegister');
@@ -68,8 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
 
-        event.preventDefault();
+
         login(username, password);
+        event.preventDefault();
     });
 
     finishRegister.addEventListener('click', function (event) {
@@ -82,19 +82,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        event.preventDefault();
+
         register(username, password);
+        event.preventDefault();
     });
 
     function register(username, password) {
         fetch('/api/v1/register', {
-            method: 'POST',
-            headers: {
+            method: 'POST', headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
+            }, body: JSON.stringify({
+                username: username, password: password,
             }),
         }).then(response => {
             if (response.ok) {
@@ -108,16 +106,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function login(username, password) {
         fetch('/api/v1/login', {
-            method: 'POST',
-            headers: {
+            method: 'POST', headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
+            }, body: JSON.stringify({
+                username: username, password: password,
             }),
         }).then(response => {
             if (response.ok) {
+                fetch('api/v1/data/userid/', {
+                    method: 'POST', headers: {
+                        'Content-Type': 'application/json',
+                    }, body: JSON.stringify({
+                        username: username,
+                    }),
+                }).then(response => response.json())
+                    .then(response => {
+                        if (response.ok) {
+                            fetch('/api/v1/login/token', {
+                                method: 'POST', headers: {
+                                    'Content-Type': 'application/json',
+                                }, body: JSON.stringify({
+                                    userid: response.userid,
+                                }),
+                            }).then(response => response.json())
+                                .then(data => {
+                                    localStorage.setItem('token', data.token);
+                                });
+                        } else {
+                            alert('Error while fetching user id')
+                        }
+                    })
                 window.location.href = '/home';
             } else {
                 document.getElementById('loginDescription').style.color = 'red';

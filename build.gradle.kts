@@ -5,21 +5,20 @@ plugins {
 }
 
 group = "de.educationshare"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-core:2.16.1");
-    implementation("com.fasterxml.jackson.core:jackson-annotations:2.16.1");
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1");
-    implementation("org.hibernate.orm:hibernate-core:6.4.4.Final");
-    implementation("com.mysql:mysql-connector-j:8.3.0");
-    implementation("org.json:json:20240303");
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("at.favre.lib:bcrypt:0.10.2")
-
+    implementation("com.fasterxml.jackson.core:jackson-core:+");
+    implementation("com.fasterxml.jackson.core:jackson-annotations:+");
+    implementation("com.fasterxml.jackson.core:jackson-databind:+");
+    implementation("org.hibernate.orm:hibernate-core:+");
+    implementation("com.mysql:mysql-connector-j:+");
+    implementation("org.json:json:+");
+    implementation("org.springframework.boot:spring-boot-starter-web:+")
+    implementation("at.favre.lib:bcrypt:+")
 }
 

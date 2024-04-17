@@ -7,7 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class Main {
@@ -66,4 +71,16 @@ public class Main {
     public HibernateUtil getHibernateUtil() {
         return hibernateUtil;
     }
+
+    /**
+     * Generate a random string with the given length
+     * @param length Length of the random string
+     * @return Random string
+     */
+    public String getRandomString(int length) {
+    return new Random().ints(length, 0, Character.MAX_CODE_POINT)
+            .mapToObj(i -> String.valueOf((char) i))
+            .collect(Collectors.joining())
+            .substring(0, length);
+}
 }

@@ -1,0 +1,7 @@
+{
+  "Database.Host" : "localhost",
+  "Database.Port" : 3306,
+  "Database.User" : "root",
+  "Database.Password" : "",
+  "Database.Name" : "educationshare"
+}

@@ -18,4 +18,19 @@ public class TokensObject {
         this.accountId = accountId;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public AccountObject getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(AccountObject accountId) {
+        this.accountId = accountId;
+    }
 }
